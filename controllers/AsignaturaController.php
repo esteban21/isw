@@ -35,14 +35,15 @@ class AsignaturaController extends Controller
      */
     public function actionIndex()
     {
-      /*  $searchModel = new AsignaturaSearch();
+        $searchModel = new AsignaturaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $this->layout="usuario.php";////--------------------------------------------------------------------------///
+        $this->layout="administrador.php";//##############  LAYOUT  ##########///
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-        */
+        
+         
         $rows = (new \yii\db\Query())
     ->select('NOMBRE_ASIGNATURA')
     ->from('asignatura')

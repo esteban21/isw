@@ -40,7 +40,7 @@ AppAsset::register($this);
             ['label' => 'Gestionar Electivos', 'url' => ['/controllers/AsignaturaController']],
             ['label' => 'Ver Horarios', 'url' => ['/site/about']],
              ['label' => 'Lista de Electivos', 'url' => ['/site/login']],
-             ['label' => 'Cerrar sesion', 'url' => ['/site/login']],
+             ['label' => 'Cerrar cuenta', 'url' => ['/site/login']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (

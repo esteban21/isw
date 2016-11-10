@@ -30,23 +30,16 @@ class AsignaturaController extends Controller
     }
 
 
-
-
-
-
     /**
      * Lists all Asignatura models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new AsignaturaSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+       
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        return $this->render('vista2');
+        
     }
 
 

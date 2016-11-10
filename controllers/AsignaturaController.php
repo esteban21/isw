@@ -29,6 +29,11 @@ class AsignaturaController extends Controller
         ];
     }
 
+
+
+
+
+
     /**
      * Lists all Asignatura models.
      * @return mixed
@@ -134,7 +139,7 @@ class AsignaturaController extends Controller
     }
 
 
-    
+
 
     /**
      * Finds the Asignatura model based on its primary key value.

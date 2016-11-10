@@ -29,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'COD_ASIGNATURA',
-            'NOMBRE_ADMIN',
             'COD_PROFESOR',
             'NOMBRE_ASIGNATURA',
             'SEMESTRE_ASIGNATURA',

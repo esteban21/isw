@@ -17,15 +17,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'COD_ASIGNATURA') ?>
 
-    <?= $form->field($model, 'NOMBRE_ADMIN') ?>
-
     <?= $form->field($model, 'COD_PROFESOR') ?>
 
     <?= $form->field($model, 'NOMBRE_ASIGNATURA') ?>
 
     <?= $form->field($model, 'SEMESTRE_ASIGNATURA') ?>
 
-    <?php // echo $form->field($model, 'CREDITOS_ASIGNATURA') ?>
+    <?= $form->field($model, 'CREDITOS_ASIGNATURA') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

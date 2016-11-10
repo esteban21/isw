@@ -37,21 +37,35 @@ class AsignaturaController extends Controller
     {
         $searchModel = new AsignaturaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $this->layout="administrador.php";//##############  LAYOUT  ##########///
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-        
-         
-        $rows = (new \yii\db\Query())
-    ->select('NOMBRE_ASIGNATURA')
-    ->from('asignatura')
-    ->where(['COD_PROFESOR' => 4])
-    ->all();
-
-        return $this->render('prueba',[ 'rows'=>$rows]);
     }
+
+
+    public function actionVer()
+    {
+        $searchModel = new AsignaturaSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionGestion(){
+        $searchModel = new AsignaturaSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+      //  $this->layout="content.php";//##############  LAYOUT  ##########///
+        return $this->render('editar', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+}
+    
 
     /**
      * Displays a single Asignatura model.

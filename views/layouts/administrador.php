@@ -37,7 +37,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Gestionar Electivos', 'url' => ['/controllers/AsignaturaController']],
+            ['label' => 'Gestionar Electivos', 'url' => ['/asignatura/gestion']],
             ['label' => 'Ver Horarios', 'url' => ['/site/about']],
              ['label' => 'Lista de Electivos', 'url' => ['/site/login']],
              ['label' => 'Cerrar cuenta', 'url' => ['/site/login']],

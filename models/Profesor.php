@@ -31,8 +31,6 @@ class Profesor extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['COD_PROFESOR'], 'required'],
-            [['COD_PROFESOR'], 'integer'],
             [['NOMBRE_PROFESOR', 'APELLIDO_P_PROFESOR', 'APELLIDO_M_PROFESOR'], 'string', 'max' => 30],
             [['E_MAIL_PROFESOR'], 'string', 'max' => 50],
         ];

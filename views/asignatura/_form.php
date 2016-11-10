@@ -12,10 +12,6 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'COD_ASIGNATURA')->textInput() ?>
-
-    <?= $form->field($model, 'NOMBRE_ADMIN')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'COD_PROFESOR')->textInput() ?>
 
     <?= $form->field($model, 'NOMBRE_ASIGNATURA')->textInput(['maxlength' => true]) ?>

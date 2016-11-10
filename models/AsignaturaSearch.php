@@ -19,7 +19,7 @@ class AsignaturaSearch extends Asignatura
     {
         return [
             [['COD_ASIGNATURA', 'COD_PROFESOR', 'SEMESTRE_ASIGNATURA', 'CREDITOS_ASIGNATURA'], 'integer'],
-            [['NOMBRE_ADMIN', 'NOMBRE_ASIGNATURA'], 'safe'],
+            [['NOMBRE_ASIGNATURA'], 'safe'],
         ];
     }
 
@@ -65,8 +65,7 @@ class AsignaturaSearch extends Asignatura
             'CREDITOS_ASIGNATURA' => $this->CREDITOS_ASIGNATURA,
         ]);
 
-        $query->andFilterWhere(['like', 'NOMBRE_ADMIN', $this->NOMBRE_ADMIN])
-            ->andFilterWhere(['like', 'NOMBRE_ASIGNATURA', $this->NOMBRE_ASIGNATURA]);
+        $query->andFilterWhere(['like', 'NOMBRE_ASIGNATURA', $this->NOMBRE_ASIGNATURA]);
 
         return $dataProvider;
     }

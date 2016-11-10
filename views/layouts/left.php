@@ -26,7 +26,7 @@
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
                    ['label' => 'Menu ', 'options' => ['class' => 'header']],
-                    ['label' => 'Lista Electivos', 'icon' => 'fa fa-circle', 'url' => ['asignatura/ver']],
+                    ['label' => 'Lista Electivos', 'icon' => 'fa fa-circle', 'url' => ['asignatura/index']],
                    
                     
                     [
@@ -35,8 +35,8 @@
                         'url' => '#',
                         'items' => [
                             ['label' => 'Agregar Electivo', 'icon' => 'fa fa-circle-o', 'url' => ['asignatura/create'],],
-                            ['label' => 'Editar Electivo', 'icon' => 'fa fa-circle-o', 'url' => ['asignatura/gestion'],],
-                            ['label' => 'Eliminar Electivo', 'icon' => 'fa fa-circle-o', 'url' => ['asignatura/gestion'],],
+                            ['label' => 'Editar Electivo', 'icon' => 'fa fa-circle-o', 'url' => ['asignatura/index'],],
+                            ['label' => 'Eliminar Electivo', 'icon' => 'fa fa-circle-o', 'url' => ['asignatura/index'],],
                         ],
                     ],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],

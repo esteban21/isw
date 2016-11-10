@@ -30,16 +30,35 @@ class AsignaturaController extends Controller
     }
 
 
+
+
+
+
+
+
+
+
+
     /**
      * Lists all Asignatura models.
      * @return mixed
      */
     public function actionIndex()
     {
-       
-
+      
+    	// $this->layout="administrador.php";
         return $this->render('vista2');
-        
+
+         
+      /*  $rows = (new \yii\db\Query())
+     ->select('NOMBRE_ASIGNATURA')
+     ->from('asignatura')
+     ->where(['COD_PROFESOR' => 4])
+     ->all();
+
+        return $this->render('prueba',[ 'rows'=>$rows]);
+
+        */
     }
 
 

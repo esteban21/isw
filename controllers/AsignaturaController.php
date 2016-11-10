@@ -45,26 +45,6 @@ class AsignaturaController extends Controller
     }
 
 
-    public function actionVer()
-    {
-        $searchModel = new AsignaturaSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    public function actionGestion(){
-        $searchModel = new AsignaturaSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-      //  $this->layout="content.php";//##############  LAYOUT  ##########///
-        return $this->render('editar', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-}
     
 
     /**
@@ -128,6 +108,33 @@ class AsignaturaController extends Controller
 
         return $this->redirect(['index']);
     }
+
+
+
+
+    public function actionVer()
+    {
+        $searchModel = new AsignaturaSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionGestion(){
+        $searchModel = new AsignaturaSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+      //  $this->layout="content.php";//##############  LAYOUT  ##########///
+        return $this->render('editar', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+
+    
 
     /**
      * Finds the Asignatura model based on its primary key value.

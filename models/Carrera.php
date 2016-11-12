@@ -7,14 +7,13 @@ use Yii;
 /**
  * This is the model class for table "carrera".
  *
- * @property integer $COD_CARRERA
- * @property integer $COD_FACULTAD
- * @property string $NOMBRE_CARRERA
- * @property integer $NUM_SEMESTRES_CARRERA
- * @property string $NOMBRE_JEFE_CARREA
+ * @property string $CAR_CODIGO
+ * @property string $FAC_CORREL
+ * @property string $CAR_NOMBRE
+ * @property string $CAR_VACANTES
  *
- * @property Facultad $cODFACULTAD
- * @property Usuario[] $usuarios
+ * @property Alumno[] $alumnos
+ * @property Facultad $fACCORREL
  */
 class Carrera extends \yii\db\ActiveRecord
 {
@@ -32,11 +31,11 @@ class Carrera extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['COD_FACULTAD'], 'required'],
-            [['COD_FACULTAD', 'NUM_SEMESTRES_CARRERA'], 'integer'],
-            [['NOMBRE_CARRERA'], 'string', 'max' => 100],
-            [['NOMBRE_JEFE_CARREA'], 'string', 'max' => 30],
-            [['COD_FACULTAD'], 'exist', 'skipOnError' => true, 'targetClass' => Facultad::className(), 'targetAttribute' => ['COD_FACULTAD' => 'COD_FACULTAD']],
+            [['CAR_CODIGO'], 'required'],
+            [['FAC_CORREL', 'CAR_VACANTES'], 'number'],
+            [['CAR_CODIGO'], 'string', 'max' => 20],
+            [['CAR_NOMBRE'], 'string', 'max' => 150],
+            [['FAC_CORREL'], 'exist', 'skipOnError' => true, 'targetClass' => Facultad::className(), 'targetAttribute' => ['FAC_CORREL' => 'FAC_CORREL']],
         ];
     }
 
@@ -46,27 +45,26 @@ class Carrera extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'COD_CARRERA' => 'Cod  Carrera',
-            'COD_FACULTAD' => 'Cod  Facultad',
-            'NOMBRE_CARRERA' => 'Nombre  Carrera',
-            'NUM_SEMESTRES_CARRERA' => 'Num  Semestres  Carrera',
-            'NOMBRE_JEFE_CARREA' => 'Nombre  Jefe  Carrea',
+            'CAR_CODIGO' => 'Car  Codigo',
+            'FAC_CORREL' => 'Fac  Correl',
+            'CAR_NOMBRE' => 'Car  Nombre',
+            'CAR_VACANTES' => 'Car  Vacantes',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCODFACULTAD()
+    public function getAlumnos()
     {
-        return $this->hasOne(Facultad::className(), ['COD_FACULTAD' => 'COD_FACULTAD']);
+        return $this->hasMany(Alumno::className(), ['CAR_CODIGO' => 'CAR_CODIGO']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUsuarios()
+    public function getFACCORREL()
     {
-        return $this->hasMany(Usuario::className(), ['COD_CARRERA' => 'COD_CARRERA']);
+        return $this->hasOne(Facultad::className(), ['FAC_CORREL' => 'FAC_CORREL']);
     }
 }

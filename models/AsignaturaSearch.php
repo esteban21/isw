@@ -18,8 +18,8 @@ class AsignaturaSearch extends Asignatura
     public function rules()
     {
         return [
-            [['COD_ASIGNATURA', 'COD_PROFESOR', 'SEMESTRE_ASIGNATURA', 'CREDITOS_ASIGNATURA'], 'integer'],
-            [['NOMBRE_ASIGNATURA'], 'safe'],
+            [['ASI_CODIGO', 'ASI_NOMBRE'], 'safe'],
+            [['DEP_CORREL', 'ASI_CREDITOS', 'ASI_CUPOS', 'ASI_SEMESTRE'], 'number'],
         ];
     }
 
@@ -59,13 +59,14 @@ class AsignaturaSearch extends Asignatura
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'COD_ASIGNATURA' => $this->COD_ASIGNATURA,
-            'COD_PROFESOR' => $this->COD_PROFESOR,
-            'SEMESTRE_ASIGNATURA' => $this->SEMESTRE_ASIGNATURA,
-            'CREDITOS_ASIGNATURA' => $this->CREDITOS_ASIGNATURA,
+            'DEP_CORREL' => $this->DEP_CORREL,
+            'ASI_CREDITOS' => $this->ASI_CREDITOS,
+            'ASI_CUPOS' => $this->ASI_CUPOS,
+            'ASI_SEMESTRE' => $this->ASI_SEMESTRE,
         ]);
 
-        $query->andFilterWhere(['like', 'NOMBRE_ASIGNATURA', $this->NOMBRE_ASIGNATURA]);
+        $query->andFilterWhere(['like', 'ASI_CODIGO', $this->ASI_CODIGO])
+            ->andFilterWhere(['like', 'ASI_NOMBRE', $this->ASI_NOMBRE]);
 
         return $dataProvider;
     }

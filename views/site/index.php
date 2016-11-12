@@ -2,30 +2,28 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Sistema Electivos UBB';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Sistema Electivos UBB</h1>
 
-        <p class="lead">Ytitulo.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        
     </div>
 
     <div class="body-content">
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Espacio 1</h2>
-
-                <p>espacio 1.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+         
             </div>
+            <div class="col-lg-4">
            
-            
+            </div>
+            <div class="col-lg-4">
+             
+            </div>
         </div>
 
     </div>

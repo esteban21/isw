@@ -7,16 +7,16 @@ use Yii;
 /**
  * This is the model class for table "asignatura".
  *
- * @property integer $COD_ASIGNATURA
- * @property integer $COD_PROFESOR
- * @property string $NOMBRE_ASIGNATURA
- * @property integer $SEMESTRE_ASIGNATURA
- * @property integer $CREDITOS_ASIGNATURA
+ * @property string $ASI_CODIGO
+ * @property string $DEP_CORREL
+ * @property string $ASI_NOMBRE
+ * @property string $ASI_CREDITOS
+ * @property string $ASI_CUPOS
+ * @property string $ASI_SEMESTRE
  *
- * @property Profesor $cODPROFESOR
- * @property Horario[] $horarios
+ * @property Departamento $dEPCORREL
+ * @property Dicta[] $dictas
  * @property Inscribe[] $inscribes
- * @property Usuario[] $rUTs
  */
 class Asignatura extends \yii\db\ActiveRecord
 {
@@ -34,10 +34,11 @@ class Asignatura extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['COD_PROFESOR'], 'required'],
-            [['COD_PROFESOR', 'SEMESTRE_ASIGNATURA', 'CREDITOS_ASIGNATURA'], 'integer'],
-            [['NOMBRE_ASIGNATURA'], 'string', 'max' => 30],
-            [['COD_PROFESOR'], 'exist', 'skipOnError' => true, 'targetClass' => Profesor::className(), 'targetAttribute' => ['COD_PROFESOR' => 'COD_PROFESOR']],
+            [['ASI_CODIGO'], 'required'],
+            [['DEP_CORREL', 'ASI_CREDITOS', 'ASI_CUPOS', 'ASI_SEMESTRE'], 'number'],
+            [['ASI_CODIGO'], 'string', 'max' => 15],
+            [['ASI_NOMBRE'], 'string', 'max' => 200],
+            [['DEP_CORREL'], 'exist', 'skipOnError' => true, 'targetClass' => Departamento::className(), 'targetAttribute' => ['DEP_CORREL' => 'DEP_CORREL']],
         ];
     }
 
@@ -47,28 +48,29 @@ class Asignatura extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'COD_ASIGNATURA' => 'Cod  Asignatura',
-            'COD_PROFESOR' => 'Cod  Profesor',
-            'NOMBRE_ASIGNATURA' => 'Nombre  Asignatura',
-            'SEMESTRE_ASIGNATURA' => 'Semestre  Asignatura',
-            'CREDITOS_ASIGNATURA' => 'Creditos  Asignatura',
+            'ASI_CODIGO' => 'Asi  Codigo',
+            'DEP_CORREL' => 'Dep  Correl',
+            'ASI_NOMBRE' => 'Asi  Nombre',
+            'ASI_CREDITOS' => 'Asi  Creditos',
+            'ASI_CUPOS' => 'Asi  Cupos',
+            'ASI_SEMESTRE' => 'Asi  Semestre',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCODPROFESOR()
+    public function getDEPCORREL()
     {
-        return $this->hasOne(Profesor::className(), ['COD_PROFESOR' => 'COD_PROFESOR']);
+        return $this->hasOne(Departamento::className(), ['DEP_CORREL' => 'DEP_CORREL']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getHorarios()
+    public function getDictas()
     {
-        return $this->hasMany(Horario::className(), ['COD_ASIGNATURA' => 'COD_ASIGNATURA']);
+        return $this->hasMany(Dicta::className(), ['ASI_CODIGO' => 'ASI_CODIGO']);
     }
 
     /**
@@ -76,14 +78,6 @@ class Asignatura extends \yii\db\ActiveRecord
      */
     public function getInscribes()
     {
-        return $this->hasMany(Inscribe::className(), ['COD_ASIGNATURA' => 'COD_ASIGNATURA']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getRUTs()
-    {
-        return $this->hasMany(Usuario::className(), ['R_U_T' => 'R_U_T'])->viaTable('inscribe', ['COD_ASIGNATURA' => 'COD_ASIGNATURA']);
+        return $this->hasMany(Inscribe::className(), ['ASI_CODIGO' => 'ASI_CODIGO']);
     }
 }

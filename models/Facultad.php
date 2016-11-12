@@ -7,10 +7,13 @@ use Yii;
 /**
  * This is the model class for table "facultad".
  *
- * @property integer $COD_FACULTAD
- * @property string $NOMBRE_FACULTAD
+ * @property string $FAC_CORREL
+ * @property string $CAM_CORREL
+ * @property string $FAC_NOMBRE
+ * @property string $FAC_DESCRIPCION
  *
  * @property Carrera[] $carreras
+ * @property Departamento[] $departamentos
  */
 class Facultad extends \yii\db\ActiveRecord
 {
@@ -28,7 +31,9 @@ class Facultad extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['NOMBRE_FACULTAD'], 'string', 'max' => 100],
+            [['FAC_CORREL'], 'required'],
+            [['FAC_CORREL', 'CAM_CORREL'], 'number'],
+            [['FAC_NOMBRE', 'FAC_DESCRIPCION'], 'string', 'max' => 250],
         ];
     }
 
@@ -38,8 +43,10 @@ class Facultad extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'COD_FACULTAD' => 'Cod  Facultad',
-            'NOMBRE_FACULTAD' => 'Nombre  Facultad',
+            'FAC_CORREL' => 'Fac  Correl',
+            'CAM_CORREL' => 'Cam  Correl',
+            'FAC_NOMBRE' => 'Fac  Nombre',
+            'FAC_DESCRIPCION' => 'Fac  Descripcion',
         ];
     }
 
@@ -48,6 +55,14 @@ class Facultad extends \yii\db\ActiveRecord
      */
     public function getCarreras()
     {
-        return $this->hasMany(Carrera::className(), ['COD_FACULTAD' => 'COD_FACULTAD']);
+        return $this->hasMany(Carrera::className(), ['FAC_CORREL' => 'FAC_CORREL']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDepartamentos()
+    {
+        return $this->hasMany(Departamento::className(), ['FAC_CORREL' => 'FAC_CORREL']);
     }
 }

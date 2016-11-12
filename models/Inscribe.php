@@ -7,11 +7,14 @@ use Yii;
 /**
  * This is the model class for table "inscribe".
  *
- * @property string $R_U_T
- * @property integer $COD_ASIGNATURA
+ * @property string $INS_CORREL
+ * @property string $ALU_RUT
+ * @property string $ASI_CODIGO
+ * @property string $INS_SEMESTRE
+ * @property string $INS_ANO
  *
- * @property Usuario $rUT
- * @property Asignatura $cODASIGNATURA
+ * @property Alumno $aLURUT
+ * @property Asignatura $aSICODIGO
  */
 class Inscribe extends \yii\db\ActiveRecord
 {
@@ -29,11 +32,12 @@ class Inscribe extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['R_U_T', 'COD_ASIGNATURA'], 'required'],
-            [['COD_ASIGNATURA'], 'integer'],
-            [['R_U_T'], 'string', 'max' => 20],
-            [['R_U_T'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['R_U_T' => 'R_U_T']],
-            [['COD_ASIGNATURA'], 'exist', 'skipOnError' => true, 'targetClass' => Asignatura::className(), 'targetAttribute' => ['COD_ASIGNATURA' => 'COD_ASIGNATURA']],
+            [['INS_CORREL', 'ALU_RUT', 'ASI_CODIGO'], 'required'],
+            [['INS_CORREL', 'INS_SEMESTRE', 'INS_ANO'], 'number'],
+            [['ALU_RUT'], 'string', 'max' => 10],
+            [['ASI_CODIGO'], 'string', 'max' => 15],
+            [['ALU_RUT'], 'exist', 'skipOnError' => true, 'targetClass' => Alumno::className(), 'targetAttribute' => ['ALU_RUT' => 'ALU_RUT']],
+            [['ASI_CODIGO'], 'exist', 'skipOnError' => true, 'targetClass' => Asignatura::className(), 'targetAttribute' => ['ASI_CODIGO' => 'ASI_CODIGO']],
         ];
     }
 
@@ -43,24 +47,27 @@ class Inscribe extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'R_U_T' => 'R  U  T',
-            'COD_ASIGNATURA' => 'Cod  Asignatura',
+            'INS_CORREL' => 'Ins  Correl',
+            'ALU_RUT' => 'Alu  Rut',
+            'ASI_CODIGO' => 'Asi  Codigo',
+            'INS_SEMESTRE' => 'Ins  Semestre',
+            'INS_ANO' => 'Ins  Ano',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getRUT()
+    public function getALURUT()
     {
-        return $this->hasOne(Usuario::className(), ['R_U_T' => 'R_U_T']);
+        return $this->hasOne(Alumno::className(), ['ALU_RUT' => 'ALU_RUT']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCODASIGNATURA()
+    public function getASICODIGO()
     {
-        return $this->hasOne(Asignatura::className(), ['COD_ASIGNATURA' => 'COD_ASIGNATURA']);
+        return $this->hasOne(Asignatura::className(), ['ASI_CODIGO' => 'ASI_CODIGO']);
     }
 }

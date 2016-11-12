@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Asignatura */
 
-$this->title = $model->COD_ASIGNATURA;
+$this->title = $model->ASI_CODIGO;
 $this->params['breadcrumbs'][] = ['label' => 'Asignaturas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->COD_ASIGNATURA], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->COD_ASIGNATURA], [
+        <?= Html::a('Update', ['update', 'id' => $model->ASI_CODIGO], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->ASI_CODIGO], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,11 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'COD_ASIGNATURA',
-            'COD_PROFESOR',
-            'NOMBRE_ASIGNATURA',
-            'SEMESTRE_ASIGNATURA',
-            'CREDITOS_ASIGNATURA',
+            'ASI_CODIGO',
+            'DEP_CORREL',
+            'ASI_NOMBRE',
+            'ASI_CREDITOS',
+            'ASI_CUPOS',
+            'ASI_SEMESTRE',
         ],
     ]) ?>
 

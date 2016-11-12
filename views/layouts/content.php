@@ -4,22 +4,10 @@ use dmstr\widgets\Alert;
 
 ?>
 <div class="content-wrapper">
+
     <section class="content-header">
-        <?php if (isset($this->blocks['content-header'])) { ?>
-            <h1><?= $this->blocks['content-header'] ?></h1>
-        <?php } else { ?>
-            <h1>
-                <?php
-                if ($this->title !== null) {
-                    echo \yii\helpers\Html::encode($this->title);
-                } else {
-                    echo \yii\helpers\Inflector::camel2words(
-                        \yii\helpers\Inflector::id2camel($this->context->module->id)
-                    );
-                    echo ($this->context->module->id !== \Yii::$app->id) ? '<small>Module</small>' : '';
-                } ?>
-            </h1>
-        <?php } ?>
+
+   <section class="left">
 
         <?=
         Breadcrumbs::widget(
@@ -35,13 +23,32 @@ use dmstr\widgets\Alert;
     </section>
 </div>
 
+
+
 <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-        <b>Version</b> 2.0
+   <!--  <div class="pull-right hidden-xs">
+ <div class="footer">
+ -->
+                    <div class="footer-inner">
+                        <!-- #section:basics/footer -->
+                        <div class="footer-content">
+                            <span class="bigger-120">
+                                <span class="blue bolder">Universidad  del B&iacute;o-B&iacute;o</span>
+                                Todos los derechos reservados &copy; 2016
+                            </span>
+
+                            &nbsp; &nbsp;
+                            
+
+                        <!-- /section:basics/footer -->
+                    </div>
+                </div>
+
     </div>
-    <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-</footer>
+    
+</footer>  
+
+               
 
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">

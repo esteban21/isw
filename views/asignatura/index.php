@@ -16,21 +16,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Asignatura', ['create'], ['class' => 'btn btn-success']) ?>
+       
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-      //  'filterModel' => $searchModel,//opcion de buscar
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'COD_ASIGNATURA',
-            'COD_PROFESOR',
-            'NOMBRE_ASIGNATURA',
-            'SEMESTRE_ASIGNATURA',
-            'CREDITOS_ASIGNATURA',
+            'ASI_CODIGO',
+           // 'DEP_CORREL',
+            'ASI_NOMBRE',
+            'ASI_CREDITOS',
+            'ASI_CUPOS',
+             'ASI_SEMESTRE',
 
-           // ['class' => 'yii\grid\ActionColumn'],
+           ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

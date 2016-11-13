@@ -53,7 +53,7 @@
                        // ['label' => 'alumno', 'url' => ['/alumno/index'],'visible' => !(Yii::$app->user->isGuest)],
 
                        
-                         //  ['label' => 'carrera', 'url' => ['/carrera/index'],'visible' => !(Yii::$app->user->isGuest)],
+                         ['label' => 'Gestion Carrera', 'url' => ['/carrera/index'],'visible' => !(Yii::$app->user->isGuest)],
 
 
 

@@ -31,7 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'ASI_CUPOS',
              'ASI_SEMESTRE',
 
-           ['class' => 'yii\grid\ActionColumn','template' => '{update} '],
+           ['class' => 'yii\grid\ActionColumn','template' => '{delete}'],
+           //['class' => 'yii\grid\ActionColumn','template' => '{view} {delete} {update} '],
         ],
     ]); ?>
 </div>

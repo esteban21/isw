@@ -19,10 +19,9 @@
         <!-- search form -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                
               <span class="input-group-btn">
-                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
+               
               </span>
             </div>
         </form>
@@ -43,19 +42,29 @@
                       
                         ['label' => 'Lista de Electivos', 'url' => ['/asignatura/index'],'visible' => !(Yii::$app->user->isGuest)],
 
-                        ['label' => 'alumno', 'url' => ['/alumno/index'],'visible' => !(Yii::$app->user->isGuest)],
+                        ['label' => 'Gestionar Electivo', 'url' => '#','visible' => !(Yii::$app->user->isGuest),
+                            'items' => [
+                                ['label' => 'Agregar Electivo', 'icon' => 'fa fa-circle-o', 'url' => ['asignatura/create'],],
+                                ['label' => 'Editar Electivo', 'icon' => 'fa fa-circle-o', 'url' => ['asignatura/editar'],],
+                                ['label' => 'Eliminar Electivo', 'icon' => 'fa fa-circle-o', 'url' => ['asignatura/eliminar'],],
+                            ],
+                         ],
+
+                       // ['label' => 'alumno', 'url' => ['/alumno/index'],'visible' => !(Yii::$app->user->isGuest)],
 
                        
-                           ['label' => 'carrera', 'url' => ['/carrera/index'],'visible' => !(Yii::$app->user->isGuest)],
+                         //  ['label' => 'carrera', 'url' => ['/carrera/index'],'visible' => !(Yii::$app->user->isGuest)],
 
 
 
-['label' => 'departamento', 'url' => ['/departamento/index'],'visible' => !(Yii::$app->user->isGuest)],
-['label' => 'dicta', 'url' => ['/dicta/index'],'visible' => !(Yii::$app->user->isGuest)],
-['label' => 'facultad', 'url' => ['/facultad/index'],'visible' => !(Yii::$app->user->isGuest)],
-['label' => 'inscribe', 'url' => ['/inscribe/index'],'visible' => !(Yii::$app->user->isGuest)],
-['label' => 'profesor', 'url' => ['/profesor/index'],'visible' => !(Yii::$app->user->isGuest)],
-                        ['label' => 'users', 'url' => ['/users/index'],'visible' => !(Yii::$app->user->isGuest)],
+//['label' => 'departamento', 'url' => ['/departamento/index'],'visible' => !(Yii::$app->user->isGuest)],
+//['label' => 'dicta', 'url' => ['/dicta/index'],'visible' => !(Yii::$app->user->isGuest)],
+//['label' => 'facultad', 'url' => ['/facultad/index'],'visible' => !(Yii::$app->user->isGuest)],
+['label' => 'Consulta de Inscripcion', 'url' => ['/inscribe/consultar'],'visible' => !(Yii::$app->user->isGuest)],
+['label' => 'Inscribir', 'url' => ['/inscribe/create'],'visible' => !(Yii::$app->user->isGuest)],
+['label' => 'Eliminar Inscripcion', 'url' => ['/inscribe/index'],'visible' => !(Yii::$app->user->isGuest)],
+//['label' => 'profesor', 'url' => ['/profesor/index'],'visible' => !(Yii::$app->user->isGuest)],
+                       // ['label' => 'users', 'url' => ['/users/index'],'visible' => !(Yii::$app->user->isGuest)],
                        // ['label' => 'register', 'url' => ['/site/register']],
 
                         //['label' => 'login', 'url' => ['/site/login']],

@@ -44,6 +44,28 @@ class AsignaturaController extends Controller
         ]);
     }
 
+    public function actionEditar()
+    {
+        $searchModel = new AsignaturaSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('editar', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionEliminar()
+    {
+        $searchModel = new AsignaturaSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('eliminar', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Displays a single Asignatura model.
      * @param string $id
@@ -105,6 +127,8 @@ class AsignaturaController extends Controller
 
         return $this->redirect(['index']);
     }
+
+   
 
     /**
      * Finds the Asignatura model based on its primary key value.

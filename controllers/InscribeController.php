@@ -44,6 +44,17 @@ class InscribeController extends Controller
         ]);
     }
 
+    public function actionConsultar()
+    {
+        $searchModel = new InscribeSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('consultar', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
     /**
      * Displays a single Inscribe model.
      * @param string $id

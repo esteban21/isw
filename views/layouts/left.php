@@ -60,7 +60,7 @@
 //['label' => 'departamento', 'url' => ['/departamento/index'],'visible' => !(Yii::$app->user->isGuest)],
 //['label' => 'dicta', 'url' => ['/dicta/index'],'visible' => !(Yii::$app->user->isGuest)],
 //['label' => 'facultad', 'url' => ['/facultad/index'],'visible' => !(Yii::$app->user->isGuest)],
-['label' => 'Consulta de Inscripcion', 'url' => ['/inscribe/consultar'],'visible' => !(Yii::$app->user->isGuest)],
+['label' => 'Consulta de Inscripcion', 'url' => ['/inscribe/index'],'visible' => !(Yii::$app->user->isGuest)],
 ['label' => 'Inscribir', 'url' => ['/inscribe/create'],'visible' => !(Yii::$app->user->isGuest)],
 ['label' => 'Eliminar Inscripcion', 'url' => ['/inscribe/index'],'visible' => !(Yii::$app->user->isGuest)],
 //['label' => 'profesor', 'url' => ['/profesor/index'],'visible' => !(Yii::$app->user->isGuest)],

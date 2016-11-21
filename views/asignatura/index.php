@@ -20,7 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -31,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'ASI_CUPOS',
              'ASI_SEMESTRE',
 
-           //['class' => 'yii\grid\ActionColumn'],
+           
         ],
     ]); ?>
 </div>

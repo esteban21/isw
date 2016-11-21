@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "asignatura".
@@ -80,4 +81,11 @@ class Asignatura extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Inscribe::className(), ['ASI_CODIGO' => 'ASI_CODIGO']);
     }
+
+    
+      public function getcomboDepartamento() { 
+        $models = Departamento::find()->asArray()->all();
+        return ArrayHelper::map($models, 'DEP_CORREL', 'DEP_NOMBRE');
+    }
+
 }

@@ -14,8 +14,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'ASI_CODIGO')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'DEP_CORREL')->textInput(['maxlength' => true]) ?>
+  
 
+    <?=$form->field($model, 'DEP_CORREL')->dropDownList($model->comboDepartamento)?>
+ 
     <?= $form->field($model, 'ASI_NOMBRE')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'ASI_CREDITOS')->textInput(['maxlength' => true]) ?>

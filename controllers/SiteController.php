@@ -190,7 +190,7 @@ public function behaviors()
     return [
         'access' => [
             'class' => AccessControl::className(),
-            'only' => ['logout', 'user', 'admin'],
+            'only' => ['logout', 'user', 'admin','profesor'],
             'rules' => [
                 [
                     //El administrador tiene permisos sobre las siguientes acciones
@@ -220,6 +220,21 @@ public function behaviors()
                       return User::isUserSimple(Yii::$app->user->identity->id);
                   },
                ],
+
+               [
+                    //Los profesores tienen permisos sobre las siguientes acciones
+                   'actions' => ['logout', 'user'],
+                   //Esta propiedad establece que tiene permisos
+                   'allow' => true,
+                   //Usuarios autenticados, el signo ? es para invitados
+                   'roles' => ['@'],
+                   //Este método nos permite crear un filtro sobre la identidad del usuario
+                   //y así establecer si tiene permisos o no
+                   'matchCallback' => function ($rule, $action) {
+                      //Llamada al método que comprueba si es un profesor
+                      return User::isUserProfesor(Yii::$app->user->identity->id);
+                  },
+               ]
             ],
         ],
  //Controla el modo en que se accede a las acciones, en este ejemplo a la acción logout
@@ -321,9 +336,9 @@ public function behaviors()
     if (!\Yii::$app->user->isGuest) {
 
         if (User::isUserAdmin(Yii::$app->user->identity->id)) {
-            return $this->redirect(["site/index"]);
+            return $this->redirect(["site/administrador"]);
         } else{
-            return $this->redirect(["site/index"]);
+            return $this->redirect(["site/alumno"]);
         }
     }
 
@@ -332,9 +347,9 @@ public function behaviors()
     if ($model->load(Yii::$app->request->post()) && $model->login()) {
 
         if (User::isUserAdmin(Yii::$app->user->identity->id)){
-            return $this->redirect(["site/index"]);
+            return $this->redirect(["site/administrador"]);
         }else{
-            return $this->redirect(["site/index"]);
+            return $this->redirect(["site/alumno"]);
         }
 
     }else {
@@ -383,6 +398,40 @@ public function behaviors()
     }
 
 
+    /**
+     * Displays user page.
+     *
+     * @return string
+     */
+
+    public function actionAlumno(){
+       
+       
+        return $this->render("alumno");
+
+    }
+
+    /**
+     * Displays user page.
+     *
+     * @return string
+     */
+
+    public function actionAdministrador(){
+
+        return $this->render("administrador");
+    }
+
+    /**
+     * Displays user page.
+     *
+     * @return string
+     */
+
+    public function actionProfesor(){
+
+        return $this->render("profesor");
+    }
 
 
 

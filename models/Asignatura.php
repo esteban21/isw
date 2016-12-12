@@ -35,13 +35,20 @@ class Asignatura extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ASI_CODIGO'], 'required'],
-            [['DEP_CORREL', 'ASI_CREDITOS', 'ASI_CUPOS', 'ASI_SEMESTRE'], 'number'],
-            [['ASI_CODIGO'], 'string', 'max' => 15],
-            [['ASI_NOMBRE'], 'string', 'max' => 200],
+            [['ASI_CODIGO','ASI_CREDITOS', 'ASI_CUPOS', 'ASI_SEMESTRE','ASI_NOMBRE'], 'required',"message"=>"El campo es obligatorio"],
+            [['DEP_CORREL', 'ASI_CUPOS'], 'number',"message"=>"Debe ingresar un numero"],
+            ['ASI_SEMESTRE', 'number', 'min'=>1, 'max'=>2,'integerOnly'=>true,"message"=>'el valor minimo debe ser 1 y maximo 2',],
+            ['ASI_CREDITOS', 'number','min'=>2,'max'=>8,'integerOnly'=>true],
+            ['ASI_CUPOS','number','min'=>1,'max'=>50,'integerOnly'=>true],
+
+            [['ASI_CODIGO'], 'string', 'max' => 15,"message"=>'caracteres maximos 15'],
+
+            ['ASI_NOMBRE', 'match','pattern' => '/^[a-zA-Z" "]+$/',"message"=>"Debe ingresar solo texto"],
             [['DEP_CORREL'], 'exist', 'skipOnError' => true, 'targetClass' => Departamento::className(), 'targetAttribute' => ['DEP_CORREL' => 'DEP_CORREL']],
         ];
     }
+
+    
 
     /**
      * @inheritdoc
@@ -49,12 +56,12 @@ class Asignatura extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ASI_CODIGO' => 'Asi  Codigo',
-            'DEP_CORREL' => 'Dep  Correl',
-            'ASI_NOMBRE' => 'Asi  Nombre',
-            'ASI_CREDITOS' => 'Asi  Creditos',
-            'ASI_CUPOS' => 'Asi  Cupos',
-            'ASI_SEMESTRE' => 'Asi  Semestre',
+            'ASI_CODIGO' => 'Codigo Asignatura',
+            'DEP_CORREL' => 'Departamento',
+            'ASI_NOMBRE' => 'Nombre Asignatura',
+            'ASI_CREDITOS' => 'Creditos',
+            'ASI_CUPOS' => 'Cupos',
+            'ASI_SEMESTRE' => 'Semestre',
         ];
     }
 

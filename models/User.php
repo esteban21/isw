@@ -155,4 +155,14 @@ public static function isUserSimple($id)
    }
 }
 
+public static function isUserProfesor($id)
+{
+   if (Users::findOne(['id' => $id, 'activate' => '1', 'role' => 3])){
+   return true;
+   } else {
+
+   return false;
+   }
+}
+
 }

@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'CAR_CODIGO',
             'ALU_NOMBRES',
             'ALU_PATERNO',
-            'ALU_MATERNO',
+            //'ALU_MATERNO',
             // 'ALU_FONO',
             // 'ALU_DIRECCION',
             // 'ALU_SITUACION',

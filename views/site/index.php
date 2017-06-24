@@ -7,7 +7,7 @@ $this->title = 'Sistema Electivos UBB';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Sistema Electivos UBB 2.0</h1>
+        <h1>Sistema Electivos UBB </h1>
 
         
     </div>
